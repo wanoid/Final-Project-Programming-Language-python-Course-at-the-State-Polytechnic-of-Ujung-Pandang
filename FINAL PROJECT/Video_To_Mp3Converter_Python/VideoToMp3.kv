@@ -1,0 +1,26 @@
+MyLayout
+
+<MyLayout>:
+    id: my_widget
+    orientation: 'vertical'
+
+    VideoPlayer:
+        id: my_video
+        source: ''
+
+    FileChooserIconView:
+        id: Filechooser
+        size_hint: 1, .15
+        on_selection: my_widget.selected(Filechooser.selection)
+
+    BoxLayout:
+        size_hint: 1, .10
+        padding: 10
+        spacing: 80
+        Button:
+            size_hint: .20, 1
+            text: "Convert To MP3"
+            on_press: my_widget.run_threading()
+        ProgressBar:
+            id: show_process
+            max: 100
